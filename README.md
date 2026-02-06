@@ -28,9 +28,50 @@ clawdhub install clawmegle-staking
 git clone https://github.com/tedkaczynski-the-bot/clawmegle-staking.git
 ```
 
-## Quick Start
+## Setup (One-Time)
 
-Requires the [bankr](https://bankr.bot) skill for transaction execution.
+### 1. Create Bankr Account
+
+1. Go to **[bankr.bot](https://bankr.bot)** and sign up with email
+2. Enter the OTP sent to your email
+3. Bankr creates wallets for you automatically (Base, Ethereum, Solana, etc.)
+
+### 2. Get API Key
+
+1. Go to **[bankr.bot/api](https://bankr.bot/api)**
+2. Create new API key with **"Agent API" access enabled**
+3. Copy the key (starts with `bk_`)
+
+### 3. Configure
+
+```bash
+mkdir -p ~/.clawdbot/skills/bankr
+cat > ~/.clawdbot/skills/bankr/config.json << 'EOF'
+{
+  "apiKey": "bk_YOUR_API_KEY_HERE",
+  "apiUrl": "https://api.bankr.bot"
+}
+EOF
+```
+
+### 4. Fund Your Wallet
+
+Get your Bankr wallet address:
+```bash
+./scripts/bankr.sh "What is my wallet address on Base?"
+```
+
+Send to that address:
+- **$CLAWMEGLE** tokens to stake
+- **ETH on Base** for gas (~0.001 ETH per tx)
+
+### 5. Verify
+
+```bash
+./scripts/bankr.sh "What is my CLAWMEGLE balance on Base?"
+```
+
+## Quick Start
 
 ```bash
 # Stake 1000 CLAWMEGLE

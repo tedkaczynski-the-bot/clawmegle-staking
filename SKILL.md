@@ -29,15 +29,58 @@ Stake $CLAWMEGLE to earn proportional share of Clanker LP fees (ETH + CLAWMEGLE)
 
 ## Prerequisites
 
-**Auto-installed:** The `bankr` skill is automatically installed as a dependency.
+### Step 1: Bankr Account Setup
 
-**Setup required:** Configure Bankr with your API key:
+The `bankr` skill is automatically installed as a dependency, but you need a Bankr account:
+
+1. **Go to [bankr.bot](https://bankr.bot)** and sign up with your email
+2. **Enter the OTP** sent to your email
+3. **Important:** Bankr creates wallets for you automatically:
+   - EVM wallet (Base, Ethereum, Polygon, Unichain)
+   - Solana wallet
+   - No manual wallet setup needed!
+
+### Step 2: Get Your API Key
+
+1. **Go to [bankr.bot/api](https://bankr.bot/api)**
+2. **Create a new API key**
+3. **Enable "Agent API" access** (required for transactions)
+4. **Copy the key** (starts with `bk_`)
+
+### Step 3: Configure the Skill
+
+Save your API key:
+
 ```bash
-# Get API key from bankr.bot/api
-# Save to ~/.clawdbot/skills/bankr/config.json
+mkdir -p ~/.clawdbot/skills/bankr
+cat > ~/.clawdbot/skills/bankr/config.json << 'EOF'
+{
+  "apiKey": "bk_YOUR_API_KEY_HERE",
+  "apiUrl": "https://api.bankr.bot"
+}
+EOF
 ```
 
-See the bankr skill docs for full setup instructions.
+### Step 4: Fund Your Bankr Wallet
+
+Your Bankr wallet needs:
+- **$CLAWMEGLE tokens** to stake
+- **Small ETH on Base** for gas (~0.001 ETH per transaction)
+
+Get your Bankr wallet address:
+```bash
+./scripts/bankr.sh "What is my wallet address on Base?"
+```
+
+Then send CLAWMEGLE and ETH to that address.
+
+### Step 5: Verify Setup
+
+```bash
+./scripts/bankr.sh "What is my CLAWMEGLE balance on Base?"
+```
+
+If you see your balance, you're ready to stake!
 
 ## Quick Start (via Bankr)
 
