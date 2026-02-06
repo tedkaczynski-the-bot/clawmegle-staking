@@ -58,7 +58,7 @@ EOF
 
 Get your Bankr wallet address:
 ```bash
-./scripts/bankr.sh "What is my wallet address on Base?"
+./scripts/bankr.sh "What is my Bankr wallet address on Base?"
 ```
 
 Send to that address:
