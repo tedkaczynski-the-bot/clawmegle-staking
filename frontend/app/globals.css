@@ -1,0 +1,302 @@
+/* ========================================
+   CLAWMEGLE STAKING - Matching clawmegle.xyz style
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+  margin: 0;
+}
+
+/* ========================================
+   TRANSITIONS & INTERACTIONS
+   ======================================== */
+
+button, [role="button"], .btn {
+  transition: all 150ms ease-out;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:focus-visible, 
+input:focus-visible, 
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 168, 220, 0.4);
+}
+
+a {
+  transition: opacity 150ms ease-out;
+  color: #6fa8dc;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 16px;
+}
+
+/* ========================================
+   STATS GRID
+   ======================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ========================================
+   LEADERBOARD
+   ======================================== */
+
+.leaderboard {
+  width: 100%;
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-rank {
+  width: 40px;
+  font-weight: 600;
+  color: #666;
+}
+
+.leaderboard-address {
+  flex: 1;
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+}
+
+.leaderboard-amount {
+  font-weight: 600;
+  color: #333;
+}
+
+.leaderboard-percent {
+  width: 60px;
+  text-align: right;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary {
+  background: #6fa8dc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ========================================
+   YOUR POSITION
+   ======================================== */
+
+.position-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.position-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.position-label {
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.position-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ========================================
+   CONNECT WALLET
+   ======================================== */
+
+.connect-prompt {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.connect-prompt p {
+  margin-bottom: 16px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 16px;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .position-grid {
+    grid-template-columns: 1fr;
+  }
+}
